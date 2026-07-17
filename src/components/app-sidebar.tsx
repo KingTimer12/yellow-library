@@ -2,6 +2,7 @@ import { For } from "solid-js"
 import { useLocation, useNavigate } from "@solidjs/router"
 
 import { NAV_ICONS } from "@/components/icons"
+import Brand from "@/components/layout/brand"
 import { NAV_ITEMS, isNavActive } from "@/components/layout/nav"
 import { cx } from "@/lib/cva"
 import { FOLDERS } from "@/data/library"
@@ -18,8 +19,14 @@ const AppSidebar = () => {
   }
 
   return (
-    <aside class="flex-none w-[220px] flex flex-col border-r border-border p-[14px_10px] gap-0.5 overflow-y-auto">
-      <For each={NAV_ITEMS}>
+    <aside class="flex-none w-[220px] flex flex-col border-r border-border">
+      {/* brand block — taller than the header so the corner reads as a cut */}
+      <div class="flex-none h-[56px] flex items-center px-4 border-b border-border">
+        <Brand />
+      </div>
+
+      <div class="flex-1 min-h-0 overflow-y-auto flex flex-col p-[14px_10px] gap-0.5">
+        <For each={NAV_ITEMS}>
         {(item) => {
           const active = () => isNavActive(item, location.pathname)
           const Icon = NAV_ICONS[item.key]
@@ -75,6 +82,7 @@ const AppSidebar = () => {
             )
           }}
         </For>
+        </div>
       </div>
     </aside>
   )

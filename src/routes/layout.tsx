@@ -13,13 +13,15 @@ const Layout = (props: RouteSectionProps) => {
   const location = useLocation()
 
   return (
-    <div class="h-screen flex flex-col bg-background text-foreground">
-      <TopBar />
+    <div class="h-screen flex bg-background text-foreground overflow-hidden">
+      {/* full-height sidebar column (owns the top-left brand) */}
+      <Show when={!isMobile()}>
+        <AppSidebar />
+      </Show>
 
-      <div class="flex-1 min-h-0 flex overflow-hidden">
-        <Show when={!isMobile()}>
-          <AppSidebar />
-        </Show>
+      {/* content column: header + scrolling page + mobile nav */}
+      <div class="flex-1 min-w-0 flex flex-col">
+        <TopBar />
 
         <div class="flex-1 min-h-0 overflow-y-auto relative">
           {/* keyed on route so the enter animation replays on each navigation */}
@@ -28,11 +30,11 @@ const Layout = (props: RouteSectionProps) => {
           </Show>
           <FolderManager />
         </div>
-      </div>
 
-      <Show when={isMobile()}>
-        <MobileNav />
-      </Show>
+        <Show when={isMobile()}>
+          <MobileNav />
+        </Show>
+      </div>
     </div>
   )
 }

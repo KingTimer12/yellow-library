@@ -1,1 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 155.3"><path d="M163 35S110-4 69 5l-3 1c-6 2-11 5-14 9l-2 3-15 26 26 5c11 7 25 10 38 7l46 9 18-30z" fill="#76b3e1"/><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="27.5" y1="3" x2="152" y2="63.5"><stop offset=".1" stop-color="#76b3e1"/><stop offset=".3" stop-color="#dcf2fd"/><stop offset="1" stop-color="#76b3e1"/></linearGradient><path d="M163 35S110-4 69 5l-3 1c-6 2-11 5-14 9l-2 3-15 26 26 5c11 7 25 10 38 7l46 9 18-30z" opacity=".3" fill="url(#a)"/><path d="M52 35l-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z" fill="#518ac8"/><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="95.8" y1="32.6" x2="74" y2="105.2"><stop offset="0" stop-color="#76b3e1"/><stop offset=".5" stop-color="#4377bb"/><stop offset="1" stop-color="#1f3b77"/></linearGradient><path d="M52 35l-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z" opacity=".3" fill="url(#b)"/><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="18.4" y1="64.2" x2="144.3" y2="149.8"><stop offset="0" stop-color="#315aa9"/><stop offset=".5" stop-color="#518ac8"/><stop offset="1" stop-color="#315aa9"/></linearGradient><path d="M134 80a45 45 0 00-48-15L24 85 4 120l112 19 20-36c4-7 3-15-2-23z" fill="url(#c)"/><linearGradient id="d" gradientUnits="userSpaceOnUse" x1="75.2" y1="74.5" x2="24.4" y2="260.8"><stop offset="0" stop-color="#4377bb"/><stop offset=".5" stop-color="#1a336b"/><stop offset="1" stop-color="#1a336b"/></linearGradient><path d="M114 115a45 45 0 00-48-15L4 120s53 40 94 30l3-1c17-5 23-21 13-34z" fill="url(#d)"/></svg>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="28%" r="85%">
+      <stop offset="0%" stop-color="#FFDD57"/>
+      <stop offset="55%" stop-color="#FFC629"/>
+      <stop offset="100%" stop-color="#F0A400"/>
+    </radialGradient>
+    <linearGradient id="book" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#232326"/>
+      <stop offset="100%" stop-color="#151517"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE79A"/>
+      <stop offset="100%" stop-color="#FFC629"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background squircle -->
+  <rect x="0" y="0" width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1024" height="1024" rx="224" fill="none" stroke="#B8790A" stroke-opacity="0.18" stroke-width="6"/>
+
+  <!-- open book silhouette -->
+  <path d="
+    M 300 780
+    C 280 780 264 764 264 744
+    L 264 372
+    C 264 358 273 346 287 342
+    C 340 326 400 322 446 356
+    C 470 374 490 398 502 420
+    L 502 744
+    C 502 764 486 780 466 780
+    Z
+  " fill="url(#book)"/>
+  <path d="
+    M 724 780
+    C 744 780 760 764 760 744
+    L 760 372
+    C 760 358 751 346 737 342
+    C 684 326 624 322 578 356
+    C 554 374 534 398 522 420
+    L 522 744
+    C 522 764 538 780 558 780
+    Z
+  " fill="url(#book)"/>
+
+  <!-- spine shadow -->
+  <path d="M 502 420 C 508 408 516 400 512 396 C 508 400 516 408 522 420 L 522 744 C 522 754 516 762 512 766 C 508 762 502 754 502 744 Z" fill="#0D0D0E" opacity="0.55"/>
+
+  <!-- novel/article text lines on left page -->
+  <g stroke="#FFE79A" stroke-width="12" stroke-linecap="round" opacity="0.92">
+    <line x1="308" y1="430" x2="452" y2="430"/>
+    <line x1="308" y1="478" x2="452" y2="478"/>
+    <line x1="308" y1="526" x2="452" y2="526"/>
+    <line x1="308" y1="574" x2="420" y2="574"/>
+  </g>
+
+  <!-- manga panel grid on right page -->
+  <g fill="none" stroke="#FFE79A" stroke-width="12" opacity="0.92">
+    <rect x="546" y="420" width="200" height="120" rx="6"/>
+    <rect x="546" y="556" width="94" height="150" rx="6"/>
+    <rect x="654" y="556" width="92" height="150" rx="6"/>
+  </g>
+
+  <!-- bookmark ribbon draped over spine -->
+  <path d="M 470 200 L 554 200 L 554 470 L 512 428 L 470 470 Z" fill="url(#ribbon)"/>
+</svg>
