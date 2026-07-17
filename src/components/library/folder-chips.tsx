@@ -16,7 +16,7 @@ const FolderChips = () => {
               type="button"
               onClick={() => selectFolder(f.id)}
               class={cx(
-                "flex-none px-3.25 py-1.75 rounded-lg border text-[12.5px] font-semibold whitespace-nowrap transition-colors",
+                "flex-none px-3.25 py-1.75 rounded-lg border text-[12.5px] font-semibold whitespace-nowrap transition-all duration-200 active:scale-95",
                 active()
                   ? "border-primary bg-accent-soft text-primary"
                   : "border-border bg-surface text-foreground",

@@ -27,7 +27,9 @@ const Library = () => {
       <TagFilter />
 
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3.5 md:gap-5">
-        <For each={visibleWorks()}>{(w) => <WorkCard work={w} />}</For>
+        <For each={visibleWorks()}>
+          {(w, i) => <WorkCard work={w} index={i()} />}
+        </For>
       </div>
     </div>
   )

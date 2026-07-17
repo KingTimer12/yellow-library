@@ -18,7 +18,7 @@ const MobileNav = () => {
             <button
               type="button"
               onClick={() => navigate(item.path)}
-              class="flex-1 flex flex-col items-center gap-0.75 bg-transparent border-none py-1"
+              class="flex-1 flex flex-col items-center gap-0.75 bg-transparent border-none py-1 transition-all duration-200 active:scale-90"
               classList={{
                 "text-primary": active(),
                 "text-muted-foreground": !active(),

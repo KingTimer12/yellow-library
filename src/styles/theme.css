@@ -100,6 +100,13 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
+
 html,
 body,
 #root {
@@ -129,4 +136,100 @@ body {
     var(--stripe-a) 0 10px,
     var(--stripe-b) 10px 20px
   );
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion system
+ * Enter = ease-out; exits are shorter. transform/opacity only. One shared
+ * rhythm (--ease). All disabled under prefers-reduced-motion.
+ * ------------------------------------------------------------------------- */
+:root {
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes yl-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes yl-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes yl-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes yl-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes yl-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* whole-page entrance on every route change */
+.page-enter {
+  animation: yl-fade-up 0.34s var(--ease) both;
+}
+.anim-fade-in {
+  animation: yl-fade-in 0.3s ease-out both;
+}
+.anim-scale-in {
+  animation: yl-scale-in 0.26s var(--ease) both;
+}
+/* grid/list item entrance — pair with inline animation-delay for stagger */
+.card-enter {
+  animation: yl-fade-up 0.4s var(--ease) both;
+}
+/* popover from a trigger (novel "Aa") */
+.panel-enter {
+  animation: yl-pop 0.18s var(--ease) both;
+  transform-origin: top right;
+}
+/* right-hand drawer + its scrim */
+.scrim-enter {
+  animation: yl-fade-in 0.2s ease-out both;
+}
+.drawer-enter {
+  animation: yl-slide-left 0.28s var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

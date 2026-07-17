@@ -15,7 +15,7 @@ import {
 const NovelSettingsPanel = () => {
   return (
     <Show when={panelOpen()}>
-      <div class="absolute right-4 top-[60px] w-[260px] bg-surface border border-border rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.18)] p-4 text-foreground z-20">
+      <div class="panel-enter absolute right-4 top-[60px] w-[260px] bg-surface border border-border rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.18)] p-4 text-foreground z-20">
         <div class="text-xs font-bold tracking-[0.03em] uppercase text-muted-foreground mb-3">
           Aparência da leitura
         </div>
@@ -26,7 +26,7 @@ const NovelSettingsPanel = () => {
             <button
               type="button"
               onClick={decFontSize}
-              class="w-6 h-6 rounded-md border border-border bg-transparent text-foreground"
+              class="w-6 h-6 rounded-md border border-border bg-transparent text-foreground transition-transform duration-150 hover:border-primary active:scale-90"
             >
               –
             </button>
@@ -34,7 +34,7 @@ const NovelSettingsPanel = () => {
             <button
               type="button"
               onClick={incFontSize}
-              class="w-6 h-6 rounded-md border border-border bg-transparent text-foreground"
+              class="w-6 h-6 rounded-md border border-border bg-transparent text-foreground transition-transform duration-150 hover:border-primary active:scale-90"
             >
               +
             </button>
@@ -49,8 +49,10 @@ const NovelSettingsPanel = () => {
                 type="button"
                 onClick={() => setNovelTheme(sw.key)}
                 class={cx(
-                  "w-[30px] h-[30px] rounded-full p-0 border-2",
-                  novelTheme() === sw.key ? "border-primary" : "border-border",
+                  "w-[30px] h-[30px] rounded-full p-0 border-2 transition-transform duration-200 hover:scale-110 active:scale-95",
+                  novelTheme() === sw.key
+                    ? "border-primary scale-110"
+                    : "border-border",
                 )}
                 style={{ background: sw.bg }}
               />

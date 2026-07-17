@@ -1,4 +1,4 @@
-import { For } from "solid-js"
+import { For, Show } from "solid-js"
 import { useNavigate } from "@solidjs/router"
 
 import { IconBack, IconBookmark } from "@/components/icons"
@@ -25,7 +25,12 @@ const NovelReader = (props: { work: Work }) => {
         class="flex-none h-[52px] flex items-center gap-3 px-4 border-b"
         style={{ "border-color": p().border, color: p().text }}
       >
-        <button type="button" onClick={back} class="border-none bg-transparent flex" style={{ color: p().text }}>
+        <button
+          type="button"
+          onClick={back}
+          class="group border-none bg-transparent flex transition-transform duration-200 hover:-translate-x-0.5 active:scale-90"
+          style={{ color: p().text }}
+        >
           <IconBack />
         </button>
         <div class="text-[13px] font-semibold">{props.work.title}</div>
@@ -33,7 +38,7 @@ const NovelReader = (props: { work: Work }) => {
         <button
           type="button"
           onClick={toggleBookmark}
-          class="border-none bg-transparent flex"
+          class="border-none bg-transparent flex transition-transform duration-200 hover:scale-110 active:scale-90"
           style={{ color: p().text }}
         >
           <IconBookmark
@@ -44,7 +49,7 @@ const NovelReader = (props: { work: Work }) => {
         <button
           type="button"
           onClick={toggleNovelPanel}
-          class="border bg-transparent rounded-[7px] px-3 py-1.5 text-xs"
+          class="border bg-transparent rounded-[7px] px-3 py-1.5 text-xs transition-transform duration-200 active:scale-95"
           style={{ "border-color": p().border, color: p().text }}
         >
           Aa
@@ -52,8 +57,10 @@ const NovelReader = (props: { work: Work }) => {
       </div>
 
       <div class="flex-1 overflow-y-auto flex justify-center">
+        {/* keyed on reading theme so switching sepia/dark/light crossfades */}
+        <Show when={novelTheme()} keyed>
         <div
-          class="max-w-[560px] w-full p-[48px_24px_80px]"
+          class="anim-fade-in max-w-[560px] w-full p-[48px_24px_80px] transition-[font-size] duration-200"
           style={{
             "font-family": "var(--font-serif)",
             color: p().text,
@@ -75,6 +82,7 @@ const NovelReader = (props: { work: Work }) => {
             )}
           </For>
         </div>
+        </Show>
       </div>
 
       <NovelSettingsPanel />

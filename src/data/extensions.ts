@@ -41,4 +41,6 @@ export const RECENT_IMPORTS: RecentImport[] = [
 export const IMPORT_BADGE_COLOR: Record<string, string> = {
   PDF: "oklch(50% 0.02 80)",
   EPUB: "oklch(55% 0.1 260)",
+  CBZ: "oklch(58% 0.14 45)",
+  ZIP: "oklch(55% 0.12 150)",
 }

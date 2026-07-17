@@ -14,10 +14,10 @@ import {
 
 const tabClass = (active: boolean) =>
   cx(
-    "px-3.5 py-2.25 border-none bg-transparent text-[13px] font-semibold transition-colors",
+    "px-3.5 py-2.25 border-none bg-transparent text-[13px] font-semibold transition-all duration-200",
     active
       ? "text-foreground border-b-2 border-primary"
-      : "text-muted-foreground border-b-2 border-transparent",
+      : "text-muted-foreground border-b-2 border-transparent hover:text-foreground",
   )
 
 const Extensions = () => {
@@ -57,7 +57,7 @@ const Extensions = () => {
                 <button
                   type="button"
                   onClick={() => removeExtension(ext.id)}
-                  class="border border-border bg-transparent text-muted-foreground rounded-[7px] px-3 py-1.75 text-[12.5px]"
+                  class="border border-border bg-transparent text-muted-foreground rounded-[7px] px-3 py-1.75 text-[12.5px] transition-colors hover:border-destructive hover:text-destructive active:scale-95"
                 >
                   Remover
                 </button>
@@ -81,7 +81,7 @@ const Extensions = () => {
                       <ExtensionRow ext={ext}>
                         <button
                           type="button"
-                          class="border border-primary bg-transparent text-primary rounded-[7px] px-3.5 py-1.75 text-[12.5px] font-semibold"
+                          class="border border-primary bg-transparent text-primary rounded-[7px] px-3.5 py-1.75 text-[12.5px] font-semibold transition-all duration-200 hover:bg-primary hover:text-primary-foreground active:scale-95"
                         >
                           Instalar
                         </button>

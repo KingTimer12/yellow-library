@@ -11,7 +11,7 @@ const ChapterList = (props: { header: string; chapters: Chapter[] }) => {
       <div class="border-t border-border">
         <For each={props.chapters}>
           {(c) => (
-            <div class="flex items-center justify-between py-3.25 px-1 border-b border-border">
+            <div class="group flex items-center justify-between py-3.25 px-2 -mx-1 rounded-md border-b border-border cursor-pointer transition-colors hover:bg-surface-2">
               <div class="flex items-center gap-2.5">
                 <span
                   class="w-[7px] h-[7px] rounded-full flex-none"

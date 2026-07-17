@@ -23,9 +23,11 @@ const WorkDetails = () => {
           <button
             type="button"
             onClick={() => navigate("/")}
-            class="flex items-center gap-1.5 border-none bg-transparent text-muted-foreground text-[13px] mb-4.5"
+            class="group flex items-center gap-1.5 border-none bg-transparent text-muted-foreground text-[13px] mb-4.5 transition-colors hover:text-foreground"
           >
-            <IconBack size={15} />
+            <span class="transition-transform duration-200 group-hover:-translate-x-0.5">
+              <IconBack size={15} />
+            </span>
             Voltar
           </button>
 
@@ -62,7 +64,7 @@ const WorkDetails = () => {
               <button
                 type="button"
                 onClick={() => navigate(`/work/${w().id}/read`)}
-                class="bg-primary text-primary-foreground border-none rounded-[9px] px-5 py-2.75 text-sm font-semibold"
+                class="bg-primary text-primary-foreground border-none rounded-[9px] px-5 py-2.75 text-sm font-semibold shadow-sm transition-all duration-200 hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
               >
                 Continuar leitura
               </button>

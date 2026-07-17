@@ -28,10 +28,10 @@ const AppSidebar = () => {
               type="button"
               onClick={() => navigate(item.path)}
               class={cx(
-                "flex items-center gap-2.75 px-2.5 py-2.25 rounded-[9px] border-none text-[13.5px] text-left transition-colors",
+                "flex items-center gap-2.75 px-2.5 py-2.25 rounded-[9px] border-none text-[13.5px] text-left transition-all duration-200 active:scale-[0.98]",
                 active()
                   ? "bg-surface-2 text-foreground font-semibold"
-                  : "bg-transparent text-muted-foreground font-medium hover:bg-surface-2/60",
+                  : "bg-transparent text-muted-foreground font-medium hover:bg-surface-2/60 hover:translate-x-0.5",
               )}
             >
               <span class="w-4.5 h-4.5 flex">
@@ -63,10 +63,10 @@ const AppSidebar = () => {
                 type="button"
                 onClick={() => goToFolder(f.id)}
                 class={cx(
-                  "w-full flex items-center gap-2 px-2 py-2 rounded-lg border-none text-[13px] transition-colors",
+                  "w-full flex items-center gap-2 px-2 py-2 rounded-lg border-none text-[13px] transition-all duration-200 active:scale-[0.98]",
                   active()
                     ? "bg-surface-2 text-foreground font-semibold"
-                    : "bg-transparent text-muted-foreground font-medium hover:bg-surface-2/60",
+                    : "bg-transparent text-muted-foreground font-medium hover:bg-surface-2/60 hover:translate-x-0.5",
                 )}
               >
                 <span class="flex-1 text-left">{f.name}</span>

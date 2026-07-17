@@ -15,7 +15,7 @@ const TagFilter = () => {
               type="button"
               onClick={() => toggleTag(tag)}
               class={cx(
-                "px-3 py-1.5 rounded-full border text-xs font-semibold transition-colors",
+                "px-3 py-1.5 rounded-full border text-xs font-semibold transition-all duration-200 active:scale-95",
                 active()
                   ? "border-primary bg-accent-soft text-primary"
                   : "border-border bg-transparent text-muted-foreground hover:border-primary/50",
